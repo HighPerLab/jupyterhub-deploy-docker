@@ -82,5 +82,13 @@ with open(os.path.join(pwd, 'userlist')) as f:
         if len(parts) >= 1:
             name = parts[0]
             whitelist.add(name)
-            if len(parts) > 1 and parts[1] == 'admin':
-                admin.add(name)
+with open(os.path.join(pwd, 'adminlist')) as f:
+    for line in f:
+        if not line:
+            continue
+        parts = line.split()
+        # in case of newline at the end of userlist file
+        if len(parts) >= 1:
+            name = parts[0]
+            adminlist.add(name)
+
